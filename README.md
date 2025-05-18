@@ -95,12 +95,6 @@ A classe `DatabaseSeeder` é executada automaticamente na inicialização e inse
 
 ---
 
-## 📄 Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
----
-
 ## 👨‍💻 Autores
 
 Desenvolvido por [Caio Liang](https://github.com/caioliang), [Allan Brito](https://github.com/Allanbm100) e [Levi Magni](https://github.com/levmn) - Projeto acadêmico Mottu - FIAP - 2025

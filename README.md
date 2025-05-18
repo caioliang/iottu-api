@@ -101,6 +101,6 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
 
-Desenvolvido por [Caio Liang, Allan Brito, Levi Magni](https://github.com/caioliang) - Projeto acadêmico Mottu FIAP - 2025
+Desenvolvido por [Caio Liang](https://github.com/caioliang), [Allan Brito](https://github.com/Allanbm100) e [Levi Magni](https://github.com/levmn) - Projeto acadêmico Mottu - FIAP - 2025

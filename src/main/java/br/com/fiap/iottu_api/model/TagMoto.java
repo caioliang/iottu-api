@@ -3,6 +3,9 @@ package br.com.fiap.iottu_api.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
@@ -32,7 +35,14 @@ public class TagMoto {
     @NotNull(message = "A longitude é obrigatória.")
     private Double longitude;
 
+    @Column(name = "data_atualizacao")
+    private LocalDateTime dataAtualizacao; 
+    
     private String observacao;
+
+    @ManyToOne
+    @JoinColumn(name = "patio_id")
+    private Patio patio;
 
     @OneToOne
     @JoinColumn(name = "moto_id", nullable = false)

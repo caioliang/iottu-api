@@ -1,6 +1,7 @@
 package br.com.fiap.iottu_api.controller;
 
-import br.com.fiap.iottu_api.dto.NovaMotoRequestDTO;
+import br.com.fiap.iottu_api.dto.MotoRequestDTO;
+import br.com.fiap.iottu_api.dto.TagMotoUpdateDTO;
 import br.com.fiap.iottu_api.model.Moto;
 import br.com.fiap.iottu_api.service.MotoService;
 import jakarta.validation.Valid;
@@ -20,7 +21,7 @@ public class MotoController {
     private final MotoService motoService;
 
     @PostMapping
-    public ResponseEntity<Moto> cadastrar(@RequestBody @Valid NovaMotoRequestDTO dto) {
+    public ResponseEntity<Moto> cadastrar(@RequestBody @Valid MotoRequestDTO dto) {
         Moto motoCriada = motoService.cadastrar(dto);
         return ResponseEntity.ok(motoCriada);
     }
@@ -38,7 +39,7 @@ public class MotoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Moto> atualizar(@PathVariable Long id, @RequestBody @Valid NovaMotoRequestDTO dto) {
+    public ResponseEntity<Moto> atualizar(@PathVariable Long id, @RequestBody @Valid MotoRequestDTO dto) {
         return ResponseEntity.ok(motoService.atualizar(id, dto));
     }
 
@@ -47,4 +48,26 @@ public class MotoController {
         motoService.deletar(id);
         return ResponseEntity.noContent().build();
     }
+    
+    @PutMapping("/tag/{codigoRfid}")
+    public ResponseEntity<Moto> atualizarTagPorCodigoRfid(
+            @PathVariable String codigoRfid,
+            @RequestBody @Valid TagMotoUpdateDTO dto
+    ) {
+        return ResponseEntity.ok(motoService.atualizarTagPorCodigoRfid(codigoRfid, dto));
+    }
+
+    @GetMapping("/search")
+    public Page<Moto> buscarPorParametros(
+        @RequestParam(required = false) String modelo,
+        @RequestParam(required = false) String fabricante,
+        @RequestParam(required = false) String cor,
+        @RequestParam(required = false) String placa,
+        @RequestParam(required = false) String patioNome,
+        Pageable pageable
+    ) {
+        return motoService.buscarPorParametros(modelo, fabricante, cor, placa, patioNome, pageable);
+    }
+
+
 }

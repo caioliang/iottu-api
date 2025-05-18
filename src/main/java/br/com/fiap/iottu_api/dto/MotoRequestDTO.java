@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class NovaMotoRequestDTO {
+public class MotoRequestDTO {
 
     @NotBlank
     private String modelo;
@@ -24,7 +24,6 @@ public class NovaMotoRequestDTO {
     @NotBlank
     private String fabricante;
 
-    // Dados da TagMoto
     @NotBlank
     private String codigoRfid;
 
@@ -37,5 +36,7 @@ public class NovaMotoRequestDTO {
     @NotNull
     private Double longitude;
 
+    private Long patioId;
+    
     private String observacao;
 }

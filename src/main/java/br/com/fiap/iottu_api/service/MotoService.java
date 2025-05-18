@@ -32,7 +32,6 @@ public class MotoService {
                 .modelo(dto.getModelo())
                 .placa(dto.getPlaca())
                 .ano(dto.getAno())
-                .cor(dto.getCor())
                 .fabricante(dto.getFabricante())
                 .build();
 
@@ -69,7 +68,6 @@ public class MotoService {
         motoExistente.setModelo(dto.getModelo());
         motoExistente.setPlaca(dto.getPlaca());
         motoExistente.setAno(dto.getAno());
-        motoExistente.setCor(dto.getCor());
         motoExistente.setFabricante(dto.getFabricante());
 
         TagMoto tag = motoExistente.getTag();

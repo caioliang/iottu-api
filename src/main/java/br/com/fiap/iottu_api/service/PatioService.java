@@ -3,9 +3,11 @@ package br.com.fiap.iottu_api.service;
 import br.com.fiap.iottu_api.model.Patio;
 import br.com.fiap.iottu_api.repository.PatioRepository;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,10 +19,12 @@ public class PatioService {
 
     private final PatioRepository patioRepository;
 
+    @CacheEvict(value = "patios", allEntries = true)
     public Patio criarPatio(Patio patio) {
         return patioRepository.save(patio);
     }
 
+    @Cacheable("patios")
     public List<Patio> listarPatios() {
         return patioRepository.findAll();
     }
@@ -29,6 +33,7 @@ public class PatioService {
         return patioRepository.findById(id);
     }
 
+    @CacheEvict(value = "patios", allEntries = true)
     public Patio atualizarPatio(Long id, Patio novoPatio) {
         return patioRepository.findById(id)
                 .map(patio -> {
@@ -43,11 +48,11 @@ public class PatioService {
                 .orElseThrow(() -> new EntityNotFoundException("Pátio não encontrado com ID: " + id));
     }
 
+    @CacheEvict(value = "patios", allEntries = true)
     public void deletar(Long id) {
         patioRepository.deleteById(id);
     }
-    
     public Page<Patio> listarPatios(Pageable pageable) {
-    return patioRepository.findAll(pageable);
+        return patioRepository.findAll(pageable);
     }
 }

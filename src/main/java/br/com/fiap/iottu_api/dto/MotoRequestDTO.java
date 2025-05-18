@@ -19,10 +19,10 @@ public class MotoRequestDTO {
     private Integer ano;
 
     @NotBlank
-    private String cor;
+    private String fabricante;
 
     @NotBlank
-    private String fabricante;
+    private String status;
 
     @NotBlank
     private String codigoRfid;

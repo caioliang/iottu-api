@@ -19,8 +19,6 @@ public class AntenaRequestDTO {
     @NotNull(message = "A longitude é obrigatória.")
     private Double longitude;
 
-    private String observacao;
-
     @NotNull(message = "O ID do pátio vinculado é obrigatório.")
     private Long patioId;
 }

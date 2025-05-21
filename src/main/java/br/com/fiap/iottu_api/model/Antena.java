@@ -31,8 +31,6 @@ public class Antena {
     @NotNull(message = "A longitude é obrigatória.")
     private Double longitude;
 
-    private String observacao;
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "patio_id", nullable = false)
     private Patio patio;

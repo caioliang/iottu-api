@@ -15,7 +15,6 @@ public class MotoRequestDTO {
     @NotBlank
     private String placa;
 
-    @NotNull
     private Integer ano;
 
     @NotBlank
@@ -38,5 +37,4 @@ public class MotoRequestDTO {
 
     private Long patioId;
     
-    private String observacao;
 }

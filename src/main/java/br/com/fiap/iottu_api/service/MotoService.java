@@ -43,7 +43,6 @@ public class MotoService {
                 .ssidWifi(dto.getSsidWifi())
                 .latitude(dto.getLatitude())
                 .longitude(dto.getLongitude())
-                .observacao(dto.getObservacao())
                 .patio(patio)
                 .moto(moto)
                 .build();
@@ -74,7 +73,6 @@ public class MotoService {
         tag.setSsidWifi(dto.getSsidWifi());
         tag.setLatitude(dto.getLatitude());
         tag.setLongitude(dto.getLongitude());
-        tag.setObservacao(dto.getObservacao());
 
         if (dto.getPatioId() != null) {
             Patio patio = patioRepository.findById(dto.getPatioId())
@@ -95,7 +93,6 @@ public class MotoService {
         tag.setSsidWifi(dto.getSsidWifi());
         tag.setLatitude(dto.getLatitude());
         tag.setLongitude(dto.getLongitude());
-        tag.setObservacao(dto.getObservacao());
         tag.setDataAtualizacao(LocalDateTime.now());
 
         if (dto.getPatioId() != null) {

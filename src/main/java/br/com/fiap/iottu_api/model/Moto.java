@@ -21,18 +21,14 @@ public class Moto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O modelo da moto é obrigatório.")
     private String modelo;
 
     @Column(unique = true)
-    @NotBlank(message = "A placa é obrigatória.")
     @PlacaValida
     private String placa;
 
-    @NotNull(message = "O ano é obrigatório.")
     private Integer ano;
 
-    @NotBlank(message = "O fabricante é obrigatório.")
     private String fabricante;
 
     @Enumerated(EnumType.STRING)

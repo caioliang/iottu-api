@@ -38,8 +38,6 @@ public class TagMoto {
     @Column(name = "data_atualizacao")
     private LocalDateTime dataAtualizacao; 
     
-    private String observacao;
-
     @ManyToOne
     @JoinColumn(name = "patio_id")
     private Patio patio;

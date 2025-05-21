@@ -8,7 +8,6 @@ public class TagMotoUpdateDTO {
     private String ssidWifi;
     private Double latitude;
     private Double longitude;
-    private String observacao;
     private Long patioId; 
 
 }

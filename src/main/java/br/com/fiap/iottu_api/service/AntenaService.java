@@ -34,7 +34,6 @@ public class AntenaService {
                 .localizacao(dto.getLocalizacao())
                 .latitude(dto.getLatitude())
                 .longitude(dto.getLongitude())
-                .observacao(dto.getObservacao())
                 .patio(patio)
                 .build();
 

@@ -1,5 +1,6 @@
 package br.com.fiap.iottu_api.service;
 
+import br.com.fiap.iottu_api.dto.PatioRequestDTO;
 import br.com.fiap.iottu_api.model.Patio;
 import br.com.fiap.iottu_api.repository.PatioRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -20,7 +21,15 @@ public class PatioService {
     private final PatioRepository patioRepository;
 
     @CacheEvict(value = "patios", allEntries = true)
-    public Patio criarPatio(Patio patio) {
+    public Patio criarPatio(PatioRequestDTO dto) {
+        Patio patio = new Patio();
+        patio.setNome(dto.getNome());
+        patio.setEndereco(dto.getEndereco());
+        patio.setCidade(dto.getCidade());
+        patio.setEstado(dto.getEstado());
+        patio.setPais(dto.getPais());
+        patio.setCapacidade(dto.getCapacidade());
+
         return patioRepository.save(patio);
     }
 
@@ -34,15 +43,15 @@ public class PatioService {
     }
 
     @CacheEvict(value = "patios", allEntries = true)
-    public Patio atualizarPatio(Long id, Patio novoPatio) {
+    public Patio atualizarPatio(Long id, PatioRequestDTO dto) {
         return patioRepository.findById(id)
                 .map(patio -> {
-                    patio.setNome(novoPatio.getNome());
-                    patio.setEndereco(novoPatio.getEndereco());
-                    patio.setCidade(novoPatio.getCidade());
-                    patio.setEstado(novoPatio.getEstado());
-                    patio.setPais(novoPatio.getPais());
-                    patio.setCapacidade(novoPatio.getCapacidade());
+                    patio.setNome(dto.getNome());
+                    patio.setEndereco(dto.getEndereco());
+                    patio.setCidade(dto.getCidade());
+                    patio.setEstado(dto.getEstado());
+                    patio.setPais(dto.getPais());
+                    patio.setCapacidade(dto.getCapacidade());
                     return patioRepository.save(patio);
                 })
                 .orElseThrow(() -> new EntityNotFoundException("Pátio não encontrado com ID: " + id));
@@ -52,6 +61,7 @@ public class PatioService {
     public void deletar(Long id) {
         patioRepository.deleteById(id);
     }
+
     public Page<Patio> listarPatios(Pageable pageable) {
         return patioRepository.findAll(pageable);
     }

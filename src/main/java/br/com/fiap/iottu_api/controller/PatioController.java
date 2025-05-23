@@ -1,5 +1,6 @@
 package br.com.fiap.iottu_api.controller;
 
+import br.com.fiap.iottu_api.dto.PatioRequestDTO;
 import br.com.fiap.iottu_api.model.Patio;
 import br.com.fiap.iottu_api.service.PatioService;
 import jakarta.validation.Valid;
@@ -17,7 +18,7 @@ public class PatioController {
     private final PatioService patioService;
 
     @PostMapping
-    public ResponseEntity<Patio> criar(@RequestBody @Valid Patio patio) {
+    public ResponseEntity<Patio> criar(@RequestBody @Valid PatioRequestDTO patio) {
         Patio novo = patioService.criarPatio(patio);
         return ResponseEntity.ok(novo);
     }

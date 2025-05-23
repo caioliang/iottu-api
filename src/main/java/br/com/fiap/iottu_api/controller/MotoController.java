@@ -61,12 +61,11 @@ public class MotoController {
     public Page<Moto> buscarPorParametros(
         @RequestParam(required = false) String modelo,
         @RequestParam(required = false) String fabricante,
-        @RequestParam(required = false) String cor,
         @RequestParam(required = false) String placa,
         @RequestParam(required = false) String patioNome,
         Pageable pageable
     ) {
-        return motoService.buscarPorParametros(modelo, fabricante, cor, placa, patioNome, pageable);
+        return motoService.buscarPorParametros(modelo, fabricante, placa, patioNome, pageable);
     }
 
 

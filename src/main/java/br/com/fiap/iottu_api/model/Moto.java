@@ -21,6 +21,7 @@ public class Moto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "O modelo da moto é obrigatório.")
     private String modelo;
 
     @Column(unique = true)

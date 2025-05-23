@@ -30,7 +30,9 @@ public class DatabaseSeeder {
         patios = List.of(
                 criarPatio("Patio Central", "Rua A, 123", "São Paulo", "SP", "Brasil", 100),
                 criarPatio("Patio Norte", "Rua B, 456", "Campinas", "SP", "Brasil", 150),
-                criarPatio("Patio Sul", "Rua C, 789", "Santos", "SP", "Brasil", 120)
+                criarPatio("Patio Sudeste", "Rua C, 789", "Santos", "SP", "Brasil", 120),
+                criarPatio("Patio Centroeste", "Rua F, 734", "Santos", "SP", "Brasil", 1200),
+                criarPatio("Patio Formes", "Rua G, 239", "Osasco", "SP", "Brasil", 190)
         );
         patioRepository.saveAll(patios);
     }
@@ -69,7 +71,10 @@ private void seedMotos() {
     private Moto criarMoto(String modelo, String placa, int ano, String fabricante,
                         String rfid, String ssid, double lat, double lon, Patio patio) {
 
-        StatusMoto status = random.nextBoolean() ? StatusMoto.ATIVA : StatusMoto.DESATIVADA;
+        
+        StatusMoto[] valores = StatusMoto.values();
+        StatusMoto status = valores[new Random().nextInt(valores.length)];                        
+
 
         TagMoto tag = TagMoto.builder()
                 .codigoRfid(rfid)
@@ -97,7 +102,9 @@ private void seedMotos() {
         List<Antena> antenas = List.of(
                 criarAntena("ANT-001", "Entrada principal", -23.56, -46.64, patios.get(0)),
                 criarAntena("ANT-002", "Saída leste", -23.57, -46.65, patios.get(1)),
-                criarAntena("ANT-003", "Área interna", -23.58, -46.66, patios.get(2))
+                criarAntena("ANT-003", "Área interna", -23.58, -12.66, patios.get(2)),
+                criarAntena("ANT-005", "Área Superior", -31.58, -33.66, patios.get(1)),
+                criarAntena("ANT-014", "Área lounge", -22.58, -44.66, patios.get(1))
         );
 
         antenaRepository.saveAll(antenas);

@@ -14,11 +14,6 @@ public class MotoSpecifications {
             fabricante == null ? null : builder.like(builder.lower(root.get("fabricante")), "%" + fabricante.toLowerCase() + "%");
     }
 
-    public static Specification<Moto> corContains(String cor) {
-        return (root, query, builder) -> 
-            cor == null ? null : builder.like(builder.lower(root.get("cor")), "%" + cor.toLowerCase() + "%");
-    }
-
     public static Specification<Moto> placaEquals(String placa) {
         return (root, query, builder) -> 
             placa == null ? null : builder.equal(root.get("placa"), placa);

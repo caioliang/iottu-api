@@ -38,7 +38,7 @@ br.com.fiap.iottu_api
 
 ### ✅ Moto
 - `modelo`, `placa`, `ano`, `fabricante`
-- `status`: `ATIVA` ou `DESATIVADA` (usando enum)
+- `status`: `DISPONIVEL`, `INDISPONIVEL` ou `MANUTENCAO` (usando enum)
 - Relacionamento `@OneToOne` com `TagMoto`
 
 ### 🎫 TagMoto
@@ -78,16 +78,15 @@ br.com.fiap.iottu_api
 
 A classe `DatabaseSeeder` é executada automaticamente na inicialização e insere:
 
-- 3 pátios  
+- 5 pátios  
 - 10 motos com tags associadas  
-- 3 antenas  
-- Status das motos: aleatório entre `ATIVA` e `DESATIVADA`  
+- 5 antenas  
+- Status das motos: aleatório entre `DISPONIVEL`, `INDISPONIVEL` ou `MANUTENCAO`  
 
 ---
 
 ## 📌 Melhorias Futuras
 
-- CRUD completo via REST (Moto, Tag, Antena, Pátio)  
 - Histórico de movimentação por antena  
 - Dashboard com localização em tempo real  
 - Integração com hardware (leitores RFID)  

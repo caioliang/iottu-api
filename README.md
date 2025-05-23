@@ -10,7 +10,7 @@ Este projeto é uma API REST desenvolvida com **Spring Boot** para gerenciar o c
 - Spring Boot 3  
 - Spring Data JPA  
 - Hibernate  
-- Banco de dados Oracle (via JDBC/EF)  
+- Banco de dados H2
 - Jakarta Validation  
 - Lombok  
 - Swagger / OpenAPI  
